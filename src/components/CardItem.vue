@@ -1,16 +1,12 @@
 <template>
-  <div>
-    <ul v-for="item in items" :key="item.id">
-      <li>{{ item.title }}</li>
-      <li>{{ item.original_title }}</li>
-      <li>{{ item.original_language }}</li>
-      <li>{{ item.vote_average }}</li>
-    </ul>
-  </div>
+  <div></div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "CardItem",
+  props: ["item"],
+};
 </script>
 
 <style lang="scss" scoped>

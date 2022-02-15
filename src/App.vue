@@ -2,39 +2,43 @@
   <div>
     <Header />
     <Main />
+    <Search @search="apiMovies" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Main from "./components/Main.vue";
-import Header from "./components/Header.vue";
+import Search from "./components/Search.vue";
+
 export default {
   name: "App",
   data() {
     return {
-      item: [],
+      series: [],
+      movies: [],
       api_key: "8d3e931d54a81efc0361bd77f5b9b04a",
-      query: "games",
+      query: "",
     };
   },
   components: {
-    Header,
-    Main,
+    Search,
   },
   methods: {
-    apiCall() {
-      const config = {
-        params: {
-          language: "it-IT",
-          api_key: this.api_key,
-          query: this.query,
-        },
-      };
+    apiMovies(term) {
+      // const config = {
+      //   params: {
+      //     language: "it-IT",
+      //     api_key: this.api_key,
+      //     query: term,
+      //   },
+      // };
+      console.log(term);
       axios
-        .get(`https://api.themoviedb.org/3/search/movie`, config)
+        .get(
+          "https://api.themoviedb.org/3/search/movie?api_key=8d3e931d54a81efc0361bd77f5b9b04a&language=it_IT&query=games"
+        )
         .then((res) => {
-          this.item = res.data.results;
+          this.movies = res.data.results;
         });
     },
   },
@@ -42,4 +46,5 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/scss/style.scss";
 </style>

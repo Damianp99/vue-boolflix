@@ -1,22 +1,19 @@
 <template>
-  <div>
-    <Search placeholder="Cerca un film" @search="searchItem" />
-  </div>
+  <div></div>
 </template>
 
 <script>
-import Search from "./Search.vue";
 export default {
   name: "Header",
 
   data() {
     return {};
   },
-  components: {
-    Search,
-  },
+  components: {},
   methods: {
-    searchItem(word) {},
+    // searchItem(word) {
+    //   console.log(word);
+    // },
   },
 };
 </script>

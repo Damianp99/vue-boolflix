@@ -1,18 +1,13 @@
 <template>
-  <div>
-    <CardItem />
-  </div>
+  <div></div>
 </template>
 
 <script>
-import CardItem from "@/components/CardItem.vue";
 export default {
   data() {
     return {};
   },
-  components: {
-    CardItem,
-  },
+  components: {},
 };
 </script>
 
