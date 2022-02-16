@@ -1,9 +1,10 @@
 <template>
-  <div></div>
+  <main></main>
 </template>
 
 <script>
 export default {
+  name: "Main",
   data() {
     return {};
   },

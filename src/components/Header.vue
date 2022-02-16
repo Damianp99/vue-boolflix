@@ -10,11 +10,7 @@ export default {
     return {};
   },
   components: {},
-  methods: {
-    // searchItem(word) {
-    //   console.log(word);
-    // },
-  },
+  methods: {},
 };
 </script>
 
