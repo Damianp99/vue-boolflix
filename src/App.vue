@@ -7,6 +7,7 @@
         :original="movie.original_title"
         :language="movie.original_language"
         :vote="movie.vote_average"
+        :poster="movie.poster_path"
       />
     </div>
     <div v-for="serie in series" :key="serie.id">
@@ -15,6 +16,7 @@
         :originalname="serie.original_name"
         :language="serie.original_language"
         :vote="serie.vote_average"
+        :poster="serie.poster_path"
       />
     </div>
   </div>

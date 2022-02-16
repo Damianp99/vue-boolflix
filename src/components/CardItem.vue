@@ -10,7 +10,8 @@
         <img src="../assets/img/en.png" alt="english flag" />
       </li>
       <li v-else>{{ language }}</li>
-      <li>{{ vote }}</li>
+      <li>{{ score }}</li>
+      <li><img :src="imagesUri + poster" alt="cinematic poster" /></li>
     </ul>
   </div>
 </template>
@@ -18,9 +19,26 @@
 <script>
 export default {
   name: "CardItem",
-  props: ["title", "original", "vote", "language", "originalname", "name"],
-  methods: {
-    getItemImg() {},
+  data() {
+    return {
+      imagesUri: "https://image.tmdb.org/t/p/w342",
+    };
+  },
+  props: [
+    "title",
+    "original",
+    "vote",
+    "language",
+    "originalname",
+    "name",
+    "poster",
+    "series",
+    "movies",
+  ],
+  computed: {
+    score() {
+      return Math.ceil(this.vote / 2);
+    },
   },
 };
 </script>
