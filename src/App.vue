@@ -1,26 +1,43 @@
 <template>
-  <div>
-    <div>
-      <Search @search="getApiItems" />
-    </div>
-    <div v-for="movie in movies" :key="movie.id">
-      <CardItem
-        :title="movie.title"
-        :original="movie.original_title"
-        :language="movie.original_language"
-        :vote="movie.vote_average"
-        :poster="movie.poster_path"
-      />
-    </div>
-    <div v-for="serie in series" :key="serie.id">
-      <CardItem
-        :name="serie.name"
-        :originalname="serie.original_name"
-        :language="serie.original_language"
-        :vote="serie.vote_average"
-        :poster="serie.poster_path"
-      />
-    </div>
+  <div class="text-center">
+    <header class="p-4 d-flex justify-content-between align-items-center">
+      <h1 class="text-danger">BOOLFIX</h1>
+      <div class="mx-5">
+        <Search @search="getApiItems" />
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h2>MOVIES</h2>
+        <div class="row">
+          <div v-for="movie in movies" :key="movie.id" class="col-4">
+            <CardItem
+              :title="movie.title"
+              :original="movie.original_title"
+              :language="movie.original_language"
+              :vote="movie.vote_average"
+              :overview="movie.overview"
+              :poster="movie.poster_path"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <h2>SERIES</h2>
+        <div class="row">
+          <div v-for="serie in series" :key="serie.id" class="col-4">
+            <CardItem
+              :name="serie.name"
+              :originalname="serie.original_name"
+              :language="serie.original_language"
+              :vote="serie.vote_average"
+              :overview="serie.overview"
+              :poster="serie.poster_path"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 

@@ -1,12 +1,13 @@
 <template>
-  <div>
+  <div class="d-flex mx-4">
     <input
+      class="form-control"
       type="text"
       placeholder="Cerca..."
       v-model.trim="word"
       @keyup.enter="search"
     />
-    <button @click="search">Cerca</button>
+    <button class="btn btn-danger mx-3" @click="search">Cerca</button>
   </div>
 </template>
 
@@ -26,5 +27,6 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../assets/scss/style.scss";
 </style>

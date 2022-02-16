@@ -1,0 +1,26 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+// HEADER
+header{
+   background-color:#000;
+  
+}
+// MAIN
+main{
+    background-color: #141414;
+}
+
+// ICON
+
+[class^="fa-"] {
+    color: #FFD700;
+  }
+
+//TITLE
+h1 ,h2{
+    color:#DDDDDD
+}
+
+h2{
+    padding:50px 0px
+}

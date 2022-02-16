@@ -1,25 +1,31 @@
 <template>
-  <div>
-    <ul>
-      <li>{{ title || name }}</li>
-      <li>{{ original || originalname }}</li>
-      <li v-if="language === 'it'">
-        <img src="../assets/img/it.png" alt="italian flag" />
-      </li>
-      <li v-else-if="language === 'en'">
-        <img src="../assets/img/en.png" alt="english flag" />
-      </li>
-      <li v-else>{{ language }}</li>
-      <li>
-        <i
-          v-for="star in 5"
-          :key="star"
-          class="fa-star"
-          :class="star <= score ? 'fa-solid' : 'fa-regular'"
-        ></i>
-      </li>
-      <li><img :src="imagesUri + poster" alt="cinematic poster" /></li>
-    </ul>
+  <div class="container text-white">
+    <div>
+      <div class="p-5 card-item d-flex align-items-center">
+        <ul class="list-unstyled">
+          <li>{{ title || name }}</li>
+          <li>{{ original || originalname }}</li>
+          <li v-if="language === 'it'">
+            <img class="flag" src="../assets/img/it.png" alt="italian flag" />
+          </li>
+          <li v-else-if="language === 'en'">
+            <img class="flag" src="../assets/img/en.png" alt="english flag" />
+          </li>
+          <li v-else>{{ language }}</li>
+          <li>
+            <strong><span>VOTO:</span></strong>
+            <i
+              v-for="star in 5"
+              :key="star"
+              class="fa-star"
+              :class="star <= score ? 'fa-solid' : 'fa-regular'"
+            ></i>
+          </li>
+          <li>{{ overview }}</li>
+          <li><img :src="imagesUri + poster" alt="cinematic poster" /></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,6 +47,7 @@ export default {
     "poster",
     "series",
     "movies",
+    "overview",
   ],
   computed: {
     score() {
@@ -51,4 +58,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/style.scss";
+.card-item {
+}
+
+.flag {
+  width: 50px;
+}
 </style>
