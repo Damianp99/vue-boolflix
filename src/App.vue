@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Search @search="getApiItems" />
+    <div>
+      <Search @search="getApiItems" />
+    </div>
     <div v-for="movie in movies" :key="movie.id">
       <CardItem
         :title="movie.title"
@@ -84,8 +86,8 @@ export default {
       );
       axios
         .get("https://api.themoviedb.org/3/search/tv", config)
-        .then((resp) => {
-          this.series = resp.data.results;
+        .then((res) => {
+          this.series = res.data.results;
         })
         .catch((err) => {
           console.log(err);

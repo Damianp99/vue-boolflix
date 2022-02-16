@@ -10,7 +10,14 @@
         <img src="../assets/img/en.png" alt="english flag" />
       </li>
       <li v-else>{{ language }}</li>
-      <li>{{ score }}</li>
+      <li>
+        <i
+          v-for="star in 5"
+          :key="star"
+          class="fa-star"
+          :class="star <= score ? 'fa-solid' : 'fa-regular'"
+        ></i>
+      </li>
       <li><img :src="imagesUri + poster" alt="cinematic poster" /></li>
     </ul>
   </div>
