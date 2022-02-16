@@ -1,20 +1,20 @@
 <template>
   <div>
     <Search @search="getApiItems" />
-    <div v-for="item in items" :key="item.id">
+    <div v-for="movie in movies" :key="movie.id">
       <CardItem
-        :title="item.title"
-        :original="item.original_title"
-        :language="item.original_language"
-        :vote="item.vote_average"
+        :title="movie.title"
+        :original="movie.original_title"
+        :language="movie.original_language"
+        :vote="movie.vote_average"
       />
     </div>
-    <div v-for="item in items" :key="item.id">
+    <div v-for="serie in series" :key="serie.id">
       <CardItem
-        :name="item.name"
-        :originalname="item.original_name"
-        :language="item.original_language"
-        :vote="item.vote_average"
+        :name="serie.name"
+        :originalname="serie.original_name"
+        :language="serie.original_language"
+        :vote="serie.vote_average"
       />
     </div>
   </div>
@@ -29,7 +29,6 @@ export default {
   name: "App",
   data() {
     return {
-      items: [],
       series: [],
       movies: [],
       api_key: "cfc0856a6e486ed1f7367bd371b61e4e",
@@ -60,7 +59,7 @@ export default {
       axios
         .get("https://api.themoviedb.org/3/search/movie", config)
         .then((res) => {
-          this.items = res.data.results;
+          this.movies = res.data.results;
         })
         .catch((err) => {
           console.log(err);
@@ -83,8 +82,8 @@ export default {
       );
       axios
         .get("https://api.themoviedb.org/3/search/tv", config)
-        .then((res2) => {
-          this.items = res2.data.results;
+        .then((resp) => {
+          this.series = resp.data.results;
         })
         .catch((err) => {
           console.log(err);
