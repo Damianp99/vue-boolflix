@@ -1,7 +1,15 @@
 <template>
   <div class="container text-white">
     <div>
-      <div class="p-5 card-item d-flex align-items-center">
+      <div
+        class="card-item d-flex align-items-center"
+        :style="{
+          backgroundImage: 'url(' + imagesUri + poster + ')',
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }"
+      >
         <ul class="list-unstyled">
           <li>{{ title || name }}</li>
           <li>{{ original || originalname }}</li>
@@ -21,8 +29,10 @@
               :class="star <= score ? 'fa-solid' : 'fa-regular'"
             ></i>
           </li>
-          <li>{{ overview }}</li>
-          <li><img :src="imagesUri + poster" alt="cinematic poster" /></li>
+          <li class="">{{ overview }}</li>
+          <li class="poster">
+            <!-- <img :src="imagesUri + poster" alt="cinematic poster" /> -->
+          </li>
         </ul>
       </div>
     </div>
@@ -60,8 +70,18 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/style.scss";
 .card-item {
+  overflow-y: auto;
+  width: 342px;
+  height: 513px;
+  margin-bottom: 30px;
 }
-
+ul {
+  li {
+  }
+}
+.poster {
+  position: relative;
+}
 .flag {
   width: 50px;
 }
